@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/custom_txt1.xml" value="0.2315" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/edit_text_background.xml" value="0.199" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/et_cust.xml" value="0.1814814814814815" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/input_text_border.xml" value="0.199" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/pass_visibility.xml" value="0.203" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/shape_login.xml" value="0.15" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/drawable/transparent.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_details.xml" value="0.20989583333333334" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_headline_list_items.xml" value="0.20989583333333334" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_main_page.xml" value="0.264" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_signin.xml" value="0.264" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/layout/activity_test.xml" value="0.4" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/menu/main_menu.xml" value="0.2129115006412997" />
+        <entry key="..\:/Users/Enigma/AndroidStudioProjects/EatFood/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18072916666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

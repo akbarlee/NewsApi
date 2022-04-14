@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">News</string>
+    <string name="txtSample">Test text type</string>
+    <string name="api_key">ac8ab4d620a44179b7bcc41579176476</string>
+
+
+</resources>
