@@ -26,6 +26,45 @@ dependencies {
    Android Api 32 (Sv2) ( minSdk 21)                                                         
    Android studio JDK 11                                       
    Build gradle 7.1.3
+
+  ![api_template](https://github.com/akbarlee/NewsApi/assets/62420106/2c2e2ed8-148b-4c9b-85b8-915939304a0d)
+
+
+### Login və registrasiya: 
   
+ <kbd> <br> REGISTRATION <br> </kbd>  buttonuna click etdikdən sonra məlumatların düzgünlüyünün yoxlanılması və qeydə alınması üçün alttaki metoddan istifadə edilib: 
+  ``` java
+  private void registerNewUser() {
+      pd = new ProgressDialog(Signup.this);
+      pd.setMessage("Xahiş olunur gözləyin");
+      pd.show();
+      // Register pəncərəsində edit text'lərə yazılan  məlumatı bazaya göndərmək üçün aşağıdakı String dəyişənləri qeyd edirik
+        String str_username = regUsername.getText().toString();
+        String str_name = regName.getText().toString();
+        String str_mail = regMail.getText().toString();
+        String str_pass = regPass.getText().toString();
+        String str_repass = regRePass.getText().toString();
 
+        if(TextUtils.isEmpty(str_name) || TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_mail) || TextUtils.isEmpty(str_pass)|| TextUtils.isEmpty(str_repass ) ) {
+            Toast.makeText(Signup.this, "Bütün sətirləri doldurun", Toast.LENGTH_SHORT).show();
+        } 
+        else if (str_pass.length()<6) {
+            Toast.makeText(Signup.this, "Şifrə 6 simvoldan böyük olmalıdır.", Toast.LENGTH_SHORT).show();
+        }
+        else if(!str_pass.equals(str_repass)) {
+            Toast.makeText(Signup.this, "Şifrə eyni olmalıdır.", Toast.LENGTH_SHORT);
+        }
+        else {
+            // Üsttəki şərtlərin heç biri ödənmədiyi halda qeydiyyatı uğurla saxlamaq üçün
+                 save(str_username , str_name , str_mail , str_pass);
 
+        }
+    }
+```
+ Class'ımızın içində  bu 2 dəyişən istifadə edilib: 
+ ``` java
+  private FirebaseAuth mAuth;
+  DatabaseReference yol;
+....
+```
+  
