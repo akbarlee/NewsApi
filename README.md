@@ -61,10 +61,69 @@ dependencies {
         }
     }
 ```
+
+  Aşağıdaki ```save(...)``` metodunun gördüyü işlərə baxaq:
+
+  İlk iş ``` mAuth.createUserWithEmailAndPassword(mail , pass) ``` metodunu çağırırıq. Bu metod mail və pass'ın qəbul etdiyi qiymətləri yoxlayaraq Firebase Realtime Database içində istifadəçi hesabı yaradır. Bu metod ``` Task<AuthResult> ``` obyekti return edərək qeydiyyat prosesinin uğurlu olub olmamağını təyin edir.
+
+  Ardınca ```  .addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() ``` metodunu çağırırıq. Bu metod ilə 1 dənə listener çağıraraq həm Uğurlu həm də Uğursuz calling'ləri idarə etmək mümkündür. Praktiki olaraq desək bu metod OnSuccessListener və  OnFailureListener üçün eyni anda iş görmüş olur.
+
+```onComplete(@NonNull Task<AuthResult> task)``` metodunda, register prosesinin nəticəsini test edirik. Əgər ```task.isSuccessful()```'dirsə , qeydiyyat uğurludur. Deyilsə , uğursuzdur.
+
  Class'ımızın içində  bu 2 dəyişən istifadə edilib: 
  ``` java
   private FirebaseAuth mAuth;
   DatabaseReference yol;
-....
 ```
-  
+  Save metodu: 
+``` java
+private void save (String username , String name , String mail , String pass) {
+      
+            mAuth.createUserWithEmailAndPassword(mail , pass)
+                    .addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful())
+                            {
+                              //  Yeni yaradılmış hesabın referansını alırıq
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            //  Hesabın uid'sini alırıq
+                            String userID = firebaseUser.getUid();
+                            // Realtime bazamızda "İstifadeciler" düyümünün içində uid adlı alt düyümdə istifadəçi məlumatları saxlamaq üçün
+                            yol = FirebaseDatabase.getInstance().getReference().child("İstifadeciler").child(userID);
+                            // Birdən çox data göndərmək üçün HashMap istifadə etməliyik.
+                            HashMap<String , Object> hashMap = new HashMap<>();
+                            hashMap.put("id" , userID);
+                            hashMap.put("username" , username.toLowerCase());
+                            hashMap.put("name" , name);
+                            hashMap.put("mail" , mail);
+                            hashMap.put("pass" , pass);
+                            hashMap.put("bio" , "");
+                            hashMap.put("photourl" , "https://firebasestorage.googleapis.com/v0/b/android-c01c1.appspot.com/o/placeholder.jpg?alt=media&token=5131ce0a-75ec-4644-8928-d6b2aff04509");
+
+                            yol.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                            @Override
+                                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                                  if (task.isSuccessful()) {
+                                                                                      pd.dismiss();
+                                                                                      Intent intent = new Intent(Signup.this , main_page.class);
+                                                                                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                                                         startActivity(intent);
+                                                                                  }
+                                                                            }
+                                                                        }
+                            );
+                        }
+                        else {
+                             pd.dismiss();
+                                Toast.makeText(Signup.this, "Bu mail və ya şifrə ilə qeydiyyat mümkün olmadı.", Toast.LENGTH_LONG).show();
+                        }
+                        }
+                    });
+     }
+```
+ ## Firebase iearxiyası: 
+
+![firebase](https://github.com/akbarlee/NewsApi/assets/62420106/69a8dfe0-067a-41d9-bf3e-7ba2e8c3a839)
+
+
