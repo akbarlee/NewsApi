@@ -27,6 +27,8 @@ dependencies {
    Android studio JDK 11                                       
    Build gradle 7.1.3
 
+Qeyd: Aşağıdaki birləşdirilmiş görüntülərdə göründüyü kimi News API ödənişsiz versiyada simvol və sorğu limiti tətbiq edir.
+
   ![api_template](https://github.com/akbarlee/NewsApi/assets/62420106/2c2e2ed8-148b-4c9b-85b8-915939304a0d)
 
 
